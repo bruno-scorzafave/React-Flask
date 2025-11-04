@@ -17,4 +17,6 @@ class ProdConfig(Config):
     pass
 
 class TestConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI: str = "sqlite:///test.db"
+    SQLALCHEMY_ECHO: bool = False
+    TESTING: bool = True
