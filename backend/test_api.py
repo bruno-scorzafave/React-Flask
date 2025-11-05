@@ -69,7 +69,7 @@ class APITestCase(unittest.TestCase):
                 'title': 'Test Recipe',
                 'description': 'This is a test recipe.'
             },
-            headers={'Authorization': f"Bearer {login_response.json['access token']}"}
+            headers={'Authorization': f"Bearer {login_response.json['access_token']}"}
         )
 
         recipe_id = create_recipe_response.json['id']
@@ -98,7 +98,7 @@ class APITestCase(unittest.TestCase):
                 'title': 'Test Recipe',
                 'description': 'This is a test recipe.'
             },
-            headers={'Authorization': f"Bearer {login_response.json['access token']}"}
+            headers={'Authorization': f"Bearer {login_response.json['access_token']}"}
         )
         
         self.assertEqual(create_recipe_response.status_code, 201)
@@ -124,7 +124,7 @@ class APITestCase(unittest.TestCase):
                 'title': 'Test Recipe',
                 'description': 'This is a test recipe.'
             },
-            headers={'Authorization': f"Bearer {login_response.json['access token']}"}
+            headers={'Authorization': f"Bearer {login_response.json['access_token']}"}
         )
 
         recipe_id = create_recipe_response.json['id']
@@ -134,7 +134,7 @@ class APITestCase(unittest.TestCase):
                 'title': 'Updated Recipe',
                 'description': 'This is an updated test recipe.'
             },
-            headers={'Authorization': f"Bearer {login_response.json['access token']}"}
+            headers={'Authorization': f"Bearer {login_response.json['access_token']}"}
         )
         
         self.assertEqual(update_recipe_response.status_code, 200)
@@ -160,13 +160,13 @@ class APITestCase(unittest.TestCase):
                 'title': 'Test Recipe',
                 'description': 'This is a test recipe.'
             },
-            headers={'Authorization': f"Bearer {login_response.json['access token']}"}
+            headers={'Authorization': f"Bearer {login_response.json['access_token']}"}
         )
 
         recipe_id = create_recipe_response.json['id']
 
         delete_recipe_response = self.client.delete(f'/recipes/recipes/{recipe_id}',
-            headers={'Authorization': f"Bearer {login_response.json['access token']}"}
+            headers={'Authorization': f"Bearer {login_response.json['access_token']}"}
         )
         
         self.assertEqual(delete_recipe_response.status_code, 200)
