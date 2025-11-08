@@ -9,8 +9,8 @@ import MainNavbar from './Components/Layout/Navbar';
 import HomePage from './Components/Pages/Home';
 import LoginPage from './Components/Pages/Login';
 import SignupPage from './Components/Pages/SignUp';
-import CreateRecipePage from './Components/Pages/CreateRecipe';
-import RecipesList from './Components/Pages/RecipesList';
+import CreateRecipePage from './Components/Recipes/CreateRecipe';
+import RecipesList from './Components/Recipes/RecipesList';
 import './Styles/main.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
