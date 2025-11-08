@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 import { useAuth } from '../../utils/auth';
+import { useIsMounted } from '../../utils/useIsMounted';
 
 function Home() {
-    const auth = useAuth();
-    const isAuthenticated = auth[0];
+    const [ logged ] = useAuth();
+
+    const isMounted = useIsMounted();
+    if (!isMounted) {
+        return <h1>Loading...</h1>;
+    }
 
     return (
         <div className="home">
-            {isAuthenticated ? (
+            {logged ? (
                 <div>
                     <h1>Welcome back to Recipes!</h1>
                     <Link to="/recipes" className="btn btn-primary mt-3">View Recipes</Link>

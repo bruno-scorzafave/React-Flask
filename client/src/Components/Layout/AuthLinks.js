@@ -4,22 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, logout } from '../../utils/auth';
 
 export default function AuthLinks() {
-  const auth = useAuth(); // adapt to the shape your auth provider returns
+  const [ logged ] = useAuth();
   const navigate = useNavigate();
-  console.log('AuthLinks auth state:', auth);
 
   const handleLogout = async (e) => {
     e.preventDefault();
-    await logout();            // call provider logout (may be async)
-    navigate('/login');        // send user to login or home
+    await logout();
+    navigate('/login');
   };
-
-  // Example shapes: auth.isAuthenticated, auth.user, etc.
-  const isAuthenticated = auth[0];
 
   return (
     <Nav className="me-auto">
-      {isAuthenticated ? (
+      {logged ? (
         <>
           <Nav.Link as={Link} to="/create_recipe">Create Recipes</Nav.Link>
           <Nav.Link as={Link} to="/recipes">Recipes List</Nav.Link>

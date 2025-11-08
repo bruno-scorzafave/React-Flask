@@ -16,7 +16,6 @@ function LoginForm() {
     const navigate = useNavigate();
 
     const loginUser = (data) => {
-      console.log('Login form submitted:', data);
 
       const requestOptions = {
         method: 'POST',
@@ -37,8 +36,6 @@ function LoginForm() {
           return response.json();
         })
         .then(data => {
-          console.log('Login successful:', data.access_token);
-          
           login(data.access_token);
           
           navigate('/');
